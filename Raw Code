@@ -1,0 +1,27 @@
+extract import gamescene
+
+player = 2g
+arrow = 5g
+circle = 4g
+
+3g.follow(6g)
+
+rotate = !{
+    2g.rotate(6g, 45, 0)
+}
+
+on(button_a(), rotate)
+
+move = !{
+  6g.move_to(4g, 2.25)
+}
+
+on(button_b(), !{
+    rotate.start_group.toggle_off()
+    move!
+})
+
+on(button_b_end(), !{
+    rotate.start_group.toggle_on()
+    move.start_group.stop()
+})
